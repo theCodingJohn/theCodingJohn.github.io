@@ -1,38 +1,241 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap");
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+@-webkit-keyframes draw {
   to {
-    transform: rotate(360deg);
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
   }
 }
+
+@keyframes draw {
+  to {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fill-in {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes fill-in {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  color: #fff;
+  background: transparent;
+  mix-blend-mode: difference;
+  padding: 0 1.7em;
+  height: 80px;
+  width: 100vw;
+  z-index: 99;
+}
+
+.nav__logo {
+  fill: #fff;
+  fill-opacity: 0;
+  -webkit-animation: fill-in 3s 3s forwards;
+          animation: fill-in 3s 3s forwards;
+}
+
+.nav__logo path {
+  stroke: #fff;
+  stroke-width: 10px;
+  stroke-dasharray: 210;
+  stroke-dashoffset: 210;
+  -webkit-animation: draw 3s forwards;
+          animation: draw 3s forwards;
+}
+
+.nav__text {
+  display: none;
+  font-size: 0.8em;
+  letter-spacing: 3px;
+}
+
+.nav__burger {
+  position: relative;
+  cursor: pointer;
+  height: 18px;
+  width: 36px;
+}
+
+.nav__line {
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  height: 3px;
+}
+
+.nav__line--top {
+  width: 60%;
+  top: 0;
+}
+
+.nav__line--center {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.nav__line--bottom {
+  width: 60%;
+  bottom: 0;
+  right: 0;
+}
+
+.nav-links-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.nav-links-wrapper {
+  max-width: 600px;
+  width: 600px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.open .nav-links-container {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.open .nav__line--top {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 300ms 300ms;
+  transition: -webkit-transform 300ms 300ms;
+  transition: transform 300ms 300ms;
+  transition: transform 300ms 300ms, -webkit-transform 300ms 300ms;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.open .nav__line--center {
+  opacity: 0;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.open .nav__line--bottom {
+  -webkit-transform: translateX(-15px) rotate(-45deg);
+          transform: translateX(-15px) rotate(-45deg);
+  -webkit-transition: -webkit-transform 300ms 300ms;
+  transition: -webkit-transform 300ms 300ms;
+  transition: transform 300ms 300ms;
+  transition: transform 300ms 300ms, -webkit-transform 300ms 300ms;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.close .nav-links-container {
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.close .nav__line--top,
+.close .nav__line--bottom {
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.close .nav__line--center {
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    padding: 0 4em;
+    height: 90px;
+  }
+  .nav__text {
+    display: inline-block;
+  }
+  .nav__logo, .nav__text {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  .nav__text {
+    margin-left: 3.8em;
+  }
+  .nav__burger {
+    -ms-grid-column-align: right;
+        justify-self: right;
+  }
+}
+
+.hero {
+  background-color: #090822;
+  height: 640px;
+}
+/*# sourceMappingURL=App.css.map */

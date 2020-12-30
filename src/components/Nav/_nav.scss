@@ -1,0 +1,133 @@
+header {
+  position: fixed;
+  top: 0;
+}
+
+.nav {
+  @include flex($justify: space-between);
+  background-color: transparent;
+  color: $white;
+  background: transparent;
+  mix-blend-mode: difference;
+  padding: 0 1.7em;
+  height: 80px;
+  width: 100vw;
+  z-index: 99;
+  &__logo {
+    fill: $white;
+    fill-opacity: 0;
+    animation: fill-in 3s 3s forwards;
+    path {
+      stroke: $white;
+      stroke-width: 10px;
+      stroke-dasharray: 210;
+      stroke-dashoffset: 210;
+      animation: draw 3s forwards;
+    }
+  }
+  &__text {
+    display: none;
+    font-size: 0.8em;
+    letter-spacing: 3px;
+  }
+  &__burger {
+    position: relative;
+    cursor: pointer;
+    height: 18px;
+    width: 36px;
+  }
+  &__line {
+    position: absolute;
+    background: $white;
+    width: 100%;
+    height: 3px;
+    &--top {
+      width: 60%;
+      top: 0;
+    }
+    &--center {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &--bottom {
+      width: 60%;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+.nav-links-container {
+  @include flex($justify: flex-end);
+  position: absolute;
+  top: 0;
+  background-color: rgba($color: $black, $alpha: 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.nav-links-wrapper {
+  max-width: 600px;
+  width: 600px;
+  height: 100%;
+  background-color: $white;
+}
+
+.open {
+  .nav-links-container {
+    transform: translateX(0);
+    transition: transform $nav-speed;
+  }
+  .nav__line--top {
+    transform: rotate(45deg);
+    transition: transform $nav-speed $nav-speed;
+    transform-origin: left;
+  }
+  .nav__line--center {
+    opacity: 0;
+    transition: opacity $nav-speed;
+  }
+  .nav__line--bottom {
+    transform: translateX(-15px) rotate(-45deg);
+    transition: transform $nav-speed $nav-speed;
+    transform-origin: left;
+  }
+}
+.close {
+  .nav-links-container {
+    transform: translateX(100vw);
+    transition: transform $nav-speed;
+  }
+  .nav__line--top,
+  .nav__line--bottom {
+    transition: transform $nav-speed;
+  }
+  .nav__line--center {
+    transition: opacity $nav-speed;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 4em;
+    height: 90px;
+    &__text {
+      display: inline-block;
+    }
+    &__logo,
+    &__text {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    &__text {
+      margin-left: 3.8em;
+    }
+    &__burger {
+      justify-self: right;
+    }
+  }
+}
