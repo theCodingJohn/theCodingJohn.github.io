@@ -17,11 +17,23 @@
   }
 }
 
-@media (min-width: 1079px) {
+@media (min-width: 768px) {
   .hero {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    &__line {
+      width: 100%;
+      height: 100%;
+      order: 2;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .hero {
     max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
     width: 100vw;
     &__line {
       max-width: 430px;
@@ -35,10 +47,5 @@
     &__role {
       font-size: 28px;
     }
-  }
-
-  .about {
-    height: 100%;
-    width: 340px;
   }
 }
