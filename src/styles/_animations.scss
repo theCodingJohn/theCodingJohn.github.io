@@ -4,3 +4,9 @@
     stroke-dashoffset: 0;
   }
 }
+
+@keyframes fill-in {
+  to {
+    fill-opacity: 1;
+  }
+}
