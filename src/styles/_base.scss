@@ -1,1 +1,80 @@
+body {
+  overflow-x: hidden;
+}
 
+.container {
+  padding: 32px;
+}
+
+.button {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 30px;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+}
+
+.button__double-border {
+  position: relative;
+  padding: 13px 20px 11px;
+  color: inherit;
+  text-decoration: none;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid;
+    transition: transform 0.2s;
+  }
+
+  &::before {
+    transform: translate(-3px, -3px);
+  }
+
+  &::after {
+    transform: translate(3px, 3px);
+  }
+
+  & > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      transform: translateY(0);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 50px 80px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    height: 100vh;
+    width: 100vw;
+  }
+}
