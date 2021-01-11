@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import { gsap, TimelineMax } from 'gsap';
+import { gsap} from 'gsap';
+import Spotify from "../../components/Spotify/Spotify";
 
 const Home = () => {
   const hero = gsap.timeline({ defaults: { duration: 1 } });
@@ -7,11 +8,12 @@ const Home = () => {
     hero.from('.hero__line', { duration: 0.5, yPercent: -100 })
       .from("h1", { scale: 0, opacity: 0 })
       .from('.hero__line a', { opacity: 0 }, "-=0.5")
-      .from(".social-icon", { duration: 0.5,y: -15, stagger: 0.5, opacity: 0 }, 0)
+      .from(".social-icon", { duration: 0.5,y: -15, stagger: 0.5, opacity: 0 }, 0.5)
   }, [])
+
   return (
     <main className="main" >
-        <section className='hero'>
+      <section className='hero'>
         <div className="hero__line">
           <h1><strong>John Cunanan</strong><br /> <span className="hero__role">— front-end developer —</span></h1>
           <a class="button button__double-border" href="mailto:thecodingjohn@outlook.com">
@@ -33,6 +35,7 @@ const Home = () => {
           </a>
         </section>
       </section>
+      <Spotify/>
     </main>
   )
 }

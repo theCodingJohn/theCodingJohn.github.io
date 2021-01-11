@@ -97,6 +97,12 @@ h1 {
   line-height: 1;
 }
 
+@media (min-width: 768px) {
+  h1 {
+    font-size: 34px;
+  }
+}
+
 @media (min-width: 992px) {
   h1 {
     font-size: 40px;
@@ -121,6 +127,18 @@ h1 {
   to {
     stroke-dasharray: 0;
     stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fill-in {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes fill-in {
+  to {
+    fill-opacity: 1;
   }
 }
 
@@ -331,6 +349,94 @@ h1 {
   }
 }
 
+.spotify {
+  display: fix;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 10px;
+  right: 10px;
+  width: 50%;
+  max-width: 243px;
+  height: 70px;
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 5px 20px;
+  background: #282828;
+  font-size: 11px;
+}
+
+.spotify__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  width: 55px;
+  min-width: 55px;
+  height: 55px;
+}
+
+.spotify__image:hover svg {
+  opacity: 0.3;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.spotify__image svg {
+  fill: #fff;
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.spotify__desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 80%;
+}
+
+.spotify__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 13px;
+  width: 90%;
+  white-space: nowrap;
+}
+
+.spotify__artist {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
+  white-space: nowrap;
+}
+
 .hero {
   background-color: #090822;
   height: 100vh;
@@ -419,6 +525,10 @@ h1 {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+  }
+  .hero__role {
+    font-size: 26px;
+    font-style: italic;
   }
   .social-icon-container {
     -webkit-box-pack: start;
