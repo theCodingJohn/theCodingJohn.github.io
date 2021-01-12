@@ -1,6 +1,9 @@
-import React, {useEffect} from 'react';
-import { gsap} from 'gsap';
+import React, {useEffect, useContext, useState} from 'react';
+import { gsap } from 'gsap';
+import axios from "axios"
+
 import Spotify from "../../components/Spotify/Spotify";
+import { SpotifyContext } from "../../contexts/SpotifyContext";
 
 const Home = () => {
   const hero = gsap.timeline({ defaults: { duration: 1 } });
@@ -9,6 +12,43 @@ const Home = () => {
       .from("h1", { scale: 0, opacity: 0 })
       .from('.hero__line a', { opacity: 0 }, "-=0.5")
       .from(".social-icon", { duration: 0.5,y: -15, stagger: 0.5, opacity: 0 }, 0.5)
+  }, [])
+
+  // For Spotify
+  const { setSpotifyData, isFetched, setIsFetched } = useContext(SpotifyContext);
+  const [token, setToken] = useState("");
+
+  const fetchData = async () => {
+    try {
+      const config = { headers: { authorization: `Bearer ${token}` } };
+      const res = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", config);
+      setSpotifyData(res.data.item);
+      setIsFetched(true);
+    } catch (e) {
+      console.log(e);
+    }
+  } 
+  
+  useEffect(() => {
+    fetchData()
+  }, [token])
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        const params = new URLSearchParams();
+        params.append('grant_type', 'refresh_token');
+        params.append('refresh_token', `${process.env.REACT_APP_REFRESH_TOKEN}`);
+
+        const config = { headers: { authorization: `Basic ${process.env.REACT_APP_SPOTIFY_AUTHORIZATION}`,"Content-Type": 'application/x-www-form-urlencoded' } };
+        const res = await axios.post("https://accounts.spotify.com/api/token", params, config);
+        setToken(res.data.access_token);
+        fetchData();
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchToken();
   }, [])
 
   return (
@@ -35,7 +75,7 @@ const Home = () => {
           </a>
         </section>
       </section>
-      <Spotify/>
+      {isFetched && <Spotify/>}
     </main>
   )
 }

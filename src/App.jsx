@@ -8,13 +8,17 @@ import {
 import Home from './pages/Home/Home';
 import Nav from './components/Nav/Nav';
 
+import { SpotifyProvider } from "./contexts/SpotifyContext";
+
 const App = () => {
   return (
     <>
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Home}></Route>
+          <SpotifyProvider>
+            <Route exact path="/" component={Home}></Route>
+          </SpotifyProvider>
         </Switch>
       </Router>
     </>
