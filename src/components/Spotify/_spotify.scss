@@ -1,6 +1,5 @@
 .spotify {
-  display: fix;
-  position: absolute;
+  position: fixed;
   @include flex($justify: flex-start);
   bottom: 10px;
   right: 10px;
@@ -11,23 +10,58 @@
   color: rgba($color: #ffffff, $alpha: 0.8);
   border-radius: 8px;
   padding: 5px 20px;
-  background: #282828;
+  background: rgba($color: $black, $alpha: 0.4);
   font-size: 11px;
-  &__image {
+  .close-button {
+    position: absolute;
+    cursor: pointer;
+    right: 8px;
+    top: 0;
+    width: 8px;
+    fill: $white;
+  }
+  &__largeImage {
+    position: absolute;
     display: flex;
     justify-content: flex-end;
-    padding: 2px;
     cursor: pointer;
-    border-radius: 2px;
-    width: 55px;
-    min-width: 55px;
-    height: 55px;
+    transform: scaleY(0);
+    top: -150px;
+    right: 0;
+    padding: 8px;
+    width: 150px;
+    height: 150px;
     &:hover svg {
-      opacity: 0.3;
+      opacity: 1;
       transition: opacity 300ms;
     }
     svg {
       fill: $white;
+      mix-blend-mode: difference;
+      opacity: 0;
+      transform: rotate(180deg);
+      transition: opacity 300ms;
+    }
+  }
+  &__image {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px;
+    cursor: pointer;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 70px;
+    z-index: 2;
+    &:hover svg {
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+    svg {
+      fill: $white;
+      mix-blend-mode: difference;
       opacity: 0;
       transform: scale(0.8);
       transition: opacity 300ms;
@@ -38,19 +72,39 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 80%;
+    width: 100%;
+    padding-left: 50px;
   }
   &__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    text-align: left;
+    letter-spacing: 1px;
+    overflow: hidden;
+    width: 90%;
+  }
+  &__artist {
+    text-align: left;
+    color: #747474;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 13px;
     width: 90%;
     white-space: nowrap;
   }
-  &__artist {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 90%;
-    white-space: nowrap;
+  &__equalizer {
+    position: absolute;
+    height: 18px;
+    bottom: 0;
+    left: 70px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
   }
 }
