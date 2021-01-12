@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from "axios";
 import gsap from "gsap"
+import { Draggable } from "gsap/all";
 
 import { SpotifyContext } from "../../contexts/SpotifyContext";
 import gif from "../../assets/spotify-gif.gif";
@@ -9,7 +10,9 @@ const Spotify = () => {
   const { spotifyData } = useContext(SpotifyContext);
 
   const close = () => {
-    gsap.to(".spotify", { duration: 3, xPercent: 200 });
+    const tl = gsap.timeline();
+    tl.to(".spotify", { duration: 1, opacity: 0 })
+    .to(".spotify", {duration: 1 , scaleX: 0}, "-=0.7")
   }
 
   const openLargeArtwork = () => {
@@ -25,6 +28,13 @@ const Spotify = () => {
     gsap.to(".spotify__equalizer", { duration: 1, x: 0 });
     gsap.to(".spotify__largeImage", { duration: 0.5, scaleY: 0, transformOrigin: "bottom" });
   }
+
+  useEffect(() => {
+    gsap.registerPlugin(Draggable);
+    Draggable.create(".spotify", {
+      bounds: document.getElementsByTagName("body")
+    });
+  }, [])
 
   return (
   <div className="spotify">
