@@ -23,7 +23,7 @@ const Home = () => {
       const config = { headers: { authorization: `Bearer ${token}` } };
       const res = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", config);
       setSpotifyData(res.data.item);
-      setIsFetched(true);
+      res.data.item === undefined ? setIsFetched(false) : setIsFetched(true);
     } catch (e) {
       console.log(e);
     }
