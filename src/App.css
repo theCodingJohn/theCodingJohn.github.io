@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,700;1,400&display=swap");
 body {
   overflow-x: hidden;
@@ -88,13 +89,25 @@ body {
 }
 
 body {
+  color: #000;
   font-family: "Hurme Geometric Sans", sans-serif;
+  line-height: 1.6;
 }
 
 h1 {
   font-weight: 500;
   font-size: 28px;
   line-height: 1;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 3.2px;
+}
+
+a {
+  color: rgba(34, 80, 109, 0.8);
 }
 
 @media (min-width: 768px) {
@@ -373,7 +386,7 @@ h1 {
   color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   padding: 5px 20px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   font-size: 11px;
 }
 
@@ -399,6 +412,7 @@ h1 {
           transform: scaleY(0);
   top: -150px;
   right: 0;
+  opacity: 0;
   padding: 8px;
   width: 150px;
   height: 150px;
@@ -482,7 +496,7 @@ h1 {
 
 .spotify__artist {
   text-align: left;
-  color: #747474;
+  color: #afafaf;
   text-overflow: ellipsis;
   overflow: hidden;
   width: 90%;
@@ -593,6 +607,62 @@ h1 {
   margin: 0 24px;
 }
 
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  margin: auto;
+  text-align: justify;
+}
+
+.about .aboutWrapper {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.about p:nth-of-type(1) {
+  margin-bottom: 15px;
+}
+
+.about a {
+  text-decoration: none;
+}
+
+.about ul {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.about ul li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.about ul li::after {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(34, 80, 109, 0.8);
+}
+
 @media (min-width: 768px) {
   .hero {
     display: -ms-grid;
@@ -625,6 +695,28 @@ h1 {
   }
   .social-icon--codepen {
     margin-left: 0;
+  }
+  .about h2 {
+    margin-bottom: 25px;
+  }
+  .about p:nth-of-type(1) {
+    margin-bottom: 17px;
+  }
+  .about ul {
+    list-style: none;
+    margin-top: 12px;
+  }
+  .about ul li {
+    position: relative;
+    padding-left: 16px;
+  }
+  .about ul li::after {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(34, 80, 109, 0.8);
   }
 }
 
