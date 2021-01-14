@@ -11,29 +11,29 @@ const Spotify = () => {
 
   const close = () => {
     const tl = gsap.timeline();
-    tl.to(".spotify", { duration: 1, opacity: 0 })
-    .to(".spotify", {duration: 1 , scaleX: 0}, "-=0.7")
+    tl.to(".spotify", { duration: 0.5, opacity: 0 })
+    .to(".spotify", {duration: 0 , scaleX: 0, delay: 0.5})
   }
 
   const openLargeArtwork = () => {
     gsap.to(".spotify__image", { duration: 1, scale: 0 });
     gsap.to(".spotify__desc", { duration: 1, x: -50, width: "calc(100% + 50px)" });
     gsap.to(".spotify__equalizer", { duration: 1, x: -40 });
-    gsap.to(".spotify__largeImage", { duration: 0.5, scaleY: 1, transformOrigin: "bottom" });
+    gsap.to(".spotify__largeImage", { duration: 0, scaleY: 1});
+    gsap.to(".spotify__largeImage", { duration: 0.5, opacity: 1});
   }
 
   const closeLargeArtwork = () => {
     gsap.to(".spotify__image", { duration: 1, scale: 1 });
     gsap.to(".spotify__desc", { duration: 1, x: -0, width: "100%" });
     gsap.to(".spotify__equalizer", { duration: 1, x: 0 });
-    gsap.to(".spotify__largeImage", { duration: 0.5, scaleY: 0, transformOrigin: "bottom" });
+    gsap.to(".spotify__largeImage", { duration: 0, scaleY: 0, delay: 0.5 });
+    gsap.to(".spotify__largeImage", { duration: 0.5, opacity: 0});
   }
 
   useEffect(() => {
     gsap.registerPlugin(Draggable);
-    Draggable.create(".spotify", {
-      bounds: document.getElementsByTagName("body")
-    });
+    Draggable.create(".spotify");
   }, [])
 
   return (

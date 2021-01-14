@@ -5,13 +5,25 @@
   src: url(/src/assets/fonts/Hurme/HurmeGeometricSans3.otf);
 }
 body {
+  color: $black;
   font-family: "Hurme Geometric Sans", sans-serif;
+  line-height: 1.6;
 }
 
 h1 {
   font-weight: 500;
   font-size: 28px;
   line-height: 1;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 3.2px;
+}
+
+a {
+  color: $hero-line;
 }
 
 @media (min-width: 768px) {

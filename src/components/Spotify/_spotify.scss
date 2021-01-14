@@ -10,7 +10,7 @@
   color: rgba($color: #ffffff, $alpha: 0.8);
   border-radius: 8px;
   padding: 5px 20px;
-  background: rgba($color: $black, $alpha: 0.4);
+  background: rgba($color: $black, $alpha: 0.6);
   font-size: 11px;
   .close-button {
     position: absolute;
@@ -28,6 +28,7 @@
     transform: scaleY(0);
     top: -150px;
     right: 0;
+    opacity: 0;
     padding: 8px;
     width: 150px;
     height: 150px;
@@ -86,7 +87,7 @@
   }
   &__artist {
     text-align: left;
-    color: #747474;
+    color: #afafaf;
     text-overflow: ellipsis;
     overflow: hidden;
     width: 90%;
