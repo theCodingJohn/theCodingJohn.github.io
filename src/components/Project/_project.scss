@@ -8,7 +8,7 @@
     width: 100vw;
     text-decoration: none;
     color: $black;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid $gray;
     background: $white;
     text-align: center;
     &:hover .background {
@@ -19,7 +19,7 @@
       font-family: "Noto Serif", serif;
       font-style: italic;
       font-size: 150px;
-      color: #e6e6e6;
+      color: $gray;
       z-index: 1;
     }
     .title {
