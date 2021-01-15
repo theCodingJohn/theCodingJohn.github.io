@@ -1,0 +1,74 @@
+.projects {
+  background: $white;
+  text-align: center;
+  .card {
+    @include flex();
+    position: relative;
+    height: 305px;
+    width: 100vw;
+    text-decoration: none;
+    color: $black;
+    border-bottom: 1px solid #e6e6e6;
+    background: $white;
+    text-align: center;
+    &:hover .background {
+      display: block;
+    }
+    .number {
+      position: absolute;
+      font-family: "Noto Serif", serif;
+      font-style: italic;
+      font-size: 150px;
+      color: #e6e6e6;
+      z-index: 1;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 900;
+      text-indent: 18px;
+      letter-spacing: 18px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .background {
+      display: none;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-size: 100%;
+      animation: imageMove 30s infinite linear alternate;
+      span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: $white, $alpha: 0.7);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .projects {
+    .card {
+      .number {
+        font-size: 200px;
+      }
+      .title {
+        font-size: 32px;
+        text-indent: 20px;
+        letter-spacing: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .projects {
+    .card {
+      .title {
+        font-size: 40px;
+      }
+    }
+  }
+}

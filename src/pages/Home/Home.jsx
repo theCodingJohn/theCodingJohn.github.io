@@ -1,9 +1,16 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, { useEffect, useContext, useState } from 'react';
+import {Link} from "react-router-dom"
 import { gsap } from 'gsap';
 import axios from "axios"
 
 import Spotify from "../../components/Spotify/Spotify";
 import { SpotifyContext } from "../../contexts/SpotifyContext";
+import Project from "../../components/Project/Project"
+
+// Project Images
+import photosnap from "../../assets/projects/photosnap.png"
+import creativeAgency from "../../assets/projects/creativeAgency.png"
+import restCountries from "../../assets/projects/restCountries.png"
 
 const Home = () => {
   const hero = gsap.timeline({ defaults: { duration: 1 } });
@@ -53,6 +60,7 @@ const Home = () => {
 
   return (
     <main className="main" >
+       {isFetched && <Spotify/>}
       <section className='hero'>
         <div className="hero__line">
           <h1><strong>John Cunanan</strong><br /> <span className="hero__role">— front-end developer —</span></h1>
@@ -75,9 +83,9 @@ const Home = () => {
           </a>
         </section>
       </section>
-      <section className="container about">
+     {/* <section className="container about">
         <div className="aboutWrapper">
-          <h2>Hi there, welcome to my den. My name is John and I like to build stuffs on the internet.</h2>
+          <h3>Hi there, welcome to my den. My name is John and I like to build stuffs on the internet.</h3>
           <p>I am a front-end developer based in Manila, producing mobile-responsive, interactive and neat looking websites. I have been teaching myself web development and found it to be a fascinating way to create and bring my ideas to life. I very much enjoy playing with APIs, UI effects and animations. <a href="mailto:thecodingjohn@outlook.com">Let's build something great.</a></p>
           <p>Here are some of the technologies I have been working with recently:</p>
           <ul>
@@ -88,7 +96,14 @@ const Home = () => {
           </ul>
         </div>
       </section>
-      {isFetched && <Spotify/>}
+      <section className="projects"> 
+        <Project card={{title: "Photosnap", image: `${photosnap}`, id: "01", link: "https://github.com/theCodingJohn/Photosnap"}}/>
+        <Project card={{title: "Creative Agency", image: `${creativeAgency}`, id: "02", link: "https://github.com/theCodingJohn/Creative-Agency"}}/>
+        <Project card={{title: "Rest Countries API", image: `${restCountries}`, id: "03", link: "https://github.com/theCodingJohn/Where-In-The-World"}}/>
+        <Link to="/projects" target="_blank" className="card container">
+         <h2 className="title">VIEW ALL</h2>
+        </Link>
+      </section>  */}
     </main>
   )
 }
