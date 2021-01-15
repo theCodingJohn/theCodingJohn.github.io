@@ -25,38 +25,38 @@ const Home = () => {
   const { setSpotifyData, isFetched, setIsFetched } = useContext(SpotifyContext);
   const [token, setToken] = useState("");
 
-  // const fetchData = async () => {
-  //   try {
-  //     const config = { headers: { authorization: `Bearer ${token}` } };
-  //     const res = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", config);
-  //     setSpotifyData(res.data.item);
-  //     res.data.item === undefined ? setIsFetched(false) : setIsFetched(true);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // } 
+  const fetchData = async () => {
+    try {
+      const config = { headers: { authorization: `Bearer ${token}` } };
+      const res = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", config);
+      setSpotifyData(res.data.item);
+      res.data.item === undefined ? setIsFetched(false) : setIsFetched(true);
+    } catch (e) {
+      console.log(e);
+    }
+  } 
   
-  // useEffect(() => {
-  //   fetchData()
-  // }, [token])
+  useEffect(() => {
+    fetchData()
+  }, [token])
 
-  // useEffect(() => {
-  //   const fetchToken = async () => {
-  //     try {
-  //       const params = new URLSearchParams();
-  //       params.append('grant_type', 'refresh_token');
-  //       params.append('refresh_token', `${process.env.REACT_APP_REFRESH_TOKEN}`);
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        const params = new URLSearchParams();
+        params.append('grant_type', 'refresh_token');
+        params.append('refresh_token', `${process.env.REACT_APP_REFRESH_TOKEN}`);
 
-  //       const config = { headers: { authorization: `Basic ${process.env.REACT_APP_SPOTIFY_AUTHORIZATION}`,"Content-Type": 'application/x-www-form-urlencoded' } };
-  //       const res = await axios.post("https://accounts.spotify.com/api/token", params, config);
-  //       setToken(res.data.access_token);
-  //       fetchData();
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
-  //   fetchToken();
-  // }, [])
+        const config = { headers: { authorization: `Basic ${process.env.REACT_APP_SPOTIFY_AUTHORIZATION}`,"Content-Type": 'application/x-www-form-urlencoded' } };
+        const res = await axios.post("https://accounts.spotify.com/api/token", params, config);
+        setToken(res.data.access_token);
+        fetchData();
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchToken();
+  }, [])
 
   return (
     <main className="main" >
@@ -83,7 +83,7 @@ const Home = () => {
           </a>
         </section>
       </section>
-     <section className="container about">
+     {/* <section className="container about">
         <div className="aboutWrapper">
           <h3>Hi there, welcome to my den. My name is John and I like to build stuffs on the internet.</h3>
           <p>I am a front-end developer based in Manila, producing mobile-responsive, interactive and neat looking websites. I have been teaching myself web development and found it to be a fascinating way to create and bring my ideas to life. I very much enjoy playing with APIs, UI effects and animations. <a href="mailto:thecodingjohn@outlook.com">Let's build something great.</a></p>
@@ -103,7 +103,7 @@ const Home = () => {
         <Link to="/projects" target="_blank" className="card container">
          <h2 className="title">VIEW ALL</h2>
         </Link>
-      </section> 
+      </section>  */}
     </main>
   )
 }
