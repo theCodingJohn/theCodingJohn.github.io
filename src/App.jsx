@@ -5,9 +5,14 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from './pages/Home/Home';
+
+// components
 import Nav from './components/Nav/Nav';
+
+// pages
+import Home from './pages/Home/Home';
 import About from './pages/About/About'
+import Projects from './pages/Projects/Projects'
 
 import { SpotifyProvider } from "./contexts/SpotifyContext";
 
@@ -20,6 +25,7 @@ const App = () => {
           <SpotifyProvider>
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/about" component={About}></Route>
+            <Route exact path="/projects" component={Projects}></Route>
           </SpotifyProvider>
         </Switch>
       </Router>
