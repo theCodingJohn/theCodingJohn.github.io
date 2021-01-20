@@ -11,17 +11,16 @@ This is my personal website built with react.js. Yes, I know it's not SEO friend
 - REACT_APP_REFRESH_TOKEN
 - REACT_APP_SPOTIFY_AUTHORIZATION
 
-## Build Setup
-```bash
-# Install dependencies
-$ yarn install
-
-# Runs the app in the development mode.
-$ yarn start
-
-# Launches the test runner in the interactive watch mode.
-$ yarn test
-
-# Builds the app for production to the build folder.
-$ yarn build
+## Installation
+1. Clone the repo
+```sh
+git clone https://github.com/theCodingJohn/theCodingJohn.github.io.git
+```
+2. Install dependencies
+```sh
+yarn install
+```
+3. Start the project
+```sh
+yarn start
 ```
