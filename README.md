@@ -1,5 +1,5 @@
 # [thecodingjohn.com](https://thecodingjohn.com)
-This is my personal website built with react.js. Yes, I know it's not SEO friendly, so I plan to rebuilt it with GatsbyJS or NextJS.
+This is my personal website built with react.js. Yes, I know it's not SEO friendly, so I'm planning to rebuilt it with GatsbyJS or NextJS.
 
 ## Tools 
 - React
