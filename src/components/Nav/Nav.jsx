@@ -25,7 +25,7 @@ function Nav() {
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/projects">Projects</a>
-        <a>Resume</a>
+        <a target="_blank" rel="noreferrer noopener"href="https://drive.google.com/file/d/1Kvj1U9-QTpeAdSHtBdE5PQ-y0jqtbNE2/view">Resume</a>
         {/* <a href="/playground">Playground</a> */}
       </div>
     </header>
