@@ -1,6 +1,4 @@
 .projects {
-  background: $white;
-  text-align: center;
   .card {
     @include flex();
     position: relative;
@@ -52,7 +50,7 @@
   .projects {
     .card {
       .number {
-        font-size: 200px;
+        font-size: 193px;
       }
       .title {
         font-size: 32px;

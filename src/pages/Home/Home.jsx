@@ -1,16 +1,9 @@
 import React, { useEffect, useContext, useState } from 'react';
-import {Link} from "react-router-dom"
 import { gsap } from 'gsap';
 import axios from "axios"
 
 import Spotify from "../../components/Spotify/Spotify";
 import { SpotifyContext } from "../../contexts/SpotifyContext";
-import Project from "../../components/Project/Project"
-
-// Project Images
-import photosnap from "../../assets/projects/photosnap.png"
-import creativeAgency from "../../assets/projects/creativeAgency.png"
-import restCountries from "../../assets/projects/restCountries.png"
 
 const Home = () => {
   const hero = gsap.timeline({ defaults: { duration: 1 } });
@@ -83,15 +76,6 @@ const Home = () => {
           </a>
         </section>
       </section>
-     {/*
-      <section className="projects"> 
-        <Project card={{title: "Photosnap", image: `${photosnap}`, id: "01", link: "https://github.com/theCodingJohn/Photosnap"}}/>
-        <Project card={{title: "Creative Agency", image: `${creativeAgency}`, id: "02", link: "https://github.com/theCodingJohn/Creative-Agency"}}/>
-        <Project card={{title: "Rest Countries API", image: `${restCountries}`, id: "03", link: "https://github.com/theCodingJohn/Where-In-The-World"}}/>
-        <Link to="/projects" target="_blank" className="card container">
-         <h2 className="title">VIEW ALL</h2>
-        </Link>
-      </section>  */}
     </main>
   )
 }
