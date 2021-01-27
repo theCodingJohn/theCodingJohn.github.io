@@ -2,7 +2,7 @@ import React from 'react'
 
 const Project = ({card}) => {
   return (
-    <a target="_blank" href={`${card.link}`} className="card container">
+    <a target="_blank" rel="noreferrer noopener" href={`${card.link}`} className="card container">
       <span className="number">
         {card.id}
       </span>

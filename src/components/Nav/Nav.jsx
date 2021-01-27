@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom"
-import gsap from "gsap"
 
 function Nav() {
   const [navStatus, setNavStatus] = useState('close');
