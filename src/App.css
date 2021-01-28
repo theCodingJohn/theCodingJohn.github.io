@@ -167,9 +167,7 @@ a {
     background-position: top;
   }
   100% {
-    from {
-      background-position: bottom;
-    }
+    background-position: bottom;
   }
 }
 
@@ -178,9 +176,7 @@ a {
     background-position: top;
   }
   100% {
-    from {
-      background-position: bottom;
-    }
+    background-position: bottom;
   }
 }
 
@@ -657,7 +653,6 @@ a {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-size: 100%;
   -webkit-animation: imageMove 30s infinite linear alternate;
           animation: imageMove 30s infinite linear alternate;
 }

@@ -7,7 +7,7 @@ const Project = ({card}) => {
         {card.id}
       </span>
       <h2 className="title">{card.title}</h2>
-      <span className="background" style={{background: `url(${card.image}) no-repeat center`}}>
+      <span className="background" style={{background: `url(${card.image}) no-repeat center`, backgroundSize: "cover"}}>
         <span></span>
       </span>
     </a>
